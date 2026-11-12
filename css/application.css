@@ -239,6 +239,24 @@ footer {
   color: #999;
   text-align: center;
 }
+footer#mainFooter {
+  background-color: #2c25a2;
+  margin-top: 0.5em;
+  padding: 0.5em 1em;
+  border-top: 1px solid #000;
+  -webkit-box-shadow: #000 -12px 9px 7px 9px;
+  -moz-box-shadow: #000 -12px 9px 7px 9px;
+  box-shadow: #000 -12px 9px 7px 9px;
+  color: #a0eddd;
+  text-align: center;
+  font-size: 0.875em;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+}
+footer#mainFooter p {
+  margin: 0;
+}
 .pure-menu.pure-menu-open,
 .pure-menu.pure-menu-open a:hover,
 a.pure-menu-heading {
@@ -814,6 +832,14 @@ header.admin-top-nav,
     position: absolute;
     top: 0;
     right: 300px;
+  }
+  footer#mainFooter {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: 0;
+    box-sizing: border-box;
   }
   .post-image-wrapper,
   .artist-image-wrapper {
@@ -3666,6 +3692,24 @@ body:after {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+/* Artist listing grid: even 252px tiles with horizontal gutters. */
+.artistProfile.pure-g-r {
+  display: grid;
+  grid-template-columns: repeat(3, 252px);
+  gap: 1em 1.25em;
+  justify-content: center;
+  letter-spacing: normal;
+  max-width: 52em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.artistProfile.pure-g-r > .pure-u-1-3 {
+  width: 100%;
+  padding: 0;
+  float: none;
+  display: block;
+  box-sizing: border-box;
+}
 /* Artist grid tiles (matches .artist-image-wrapper 252×156). */
 .artistProfile .artist-image {
   background-color: #2c25a2;
@@ -3710,4 +3754,25 @@ body:after {
   font-weight: normal;
   text-transform: uppercase;
   color: #a0eddd;
+}
+.artistProfile .artist-image .artistName {
+  margin: 0;
+  padding: 0.35em 0.5em;
+  font-size: 1em;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #a0eddd;
+  text-align: center;
+}
+@media (max-width: 40em) {
+  .artistProfile.pure-g-r {
+    grid-template-columns: minmax(0, 252px);
+    gap: 0.75em;
+    justify-content: center;
+  }
+}
+@media (min-width: 40.01em) and (max-width: 54em) {
+  .artistProfile.pure-g-r {
+    grid-template-columns: repeat(2, 252px);
+  }
 }
